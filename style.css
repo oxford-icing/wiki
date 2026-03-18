@@ -1,0 +1,177 @@
+/*Variables*/
+:root {
+    --bg-color: #f2f0f0;
+    --fg-color: #002147;
+    --accent: #1d42a6;
+    --bold: #FB5607;
+
+    --content-width: 48rem;
+    --transition-time: 0.3s;
+}
+
+/*Fonts*/
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v51-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/roboto-v51-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/roboto-v51-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/roboto-v51-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* space-grotesk-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* space-grotesk-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/space-grotesk-v22-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/*Cascade*/
+html {
+    font-size: 13pt;
+    line-height: 1.7;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    color: var(--fg-color);
+    transition: var(--transition-time);
+}
+@media screen and (max-width: 720px) {
+	html {
+		font-size: 11pt;
+	}
+}
+
+/*Links*/
+a {
+    transition: var(--transition-time);
+    color: var(--accent);
+}
+a:hover {
+    color: var(--bold);
+}
+
+/*Headings*/
+h1, h2, h3, summary {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.0;
+}
+h2 {
+    /* padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--accent); */
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: var(--bg-color);
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+h3 {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: var(--bg-color);
+    font-size: 1.25rem;
+    line-height: 1.0;
+}
+summary {
+    font-size: 1.25rem;
+    line-height: 1.0;
+}
+
+/*Lists*/
+ul {
+    padding-left: 1.25rem;
+}
+
+::selection {
+	color: var(--fg-color);
+	background-color: var(--bold);
+}
+
+/*Utilities*/
+.wrapper {
+	margin-inline: auto;
+	padding-inline: 2rem;
+	padding-top: 2rem;
+	max-width: var(--content-width);
+}
+
+.grow-on-hover {
+    transition: var(--transition-time);
+}
+.grow-on-hover:hover {
+    scale: 1.05;
+}
+
+.logo {
+    height: 4rem;
+}
+
+.tiny-logo {
+    height: 2rem;
+}
+
+.cover-image {
+    width: 100%;
+    height: 10rem;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.website-credit {
+    font-size: 0.75rem;
+    margin-top: 5rem;
+}
+
+.article-credit {
+    border-top: 1px solid;
+    padding-top: 0.5rem;
+    margin-top: 5rem;
+    font-family: 'Space Grotesk';
+    font-style: italic;
+}
