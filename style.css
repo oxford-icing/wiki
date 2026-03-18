@@ -168,7 +168,10 @@ ul {
 .card {
     display: inline-block;
     width: 45%;
-    margin: 2.3%;
+    margin-left: 2.3%;
+    margin-right: 2.3%;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
     transition: var(--transition-time);
 }
