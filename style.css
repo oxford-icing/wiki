@@ -9,6 +9,7 @@
 
     --content-width: 48rem;
     --transition-time: 0.3s;
+    --radius: 12px;
 }
 
 /*Fonts*/
@@ -18,7 +19,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/roboto-v51-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/roboto-v51-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* roboto-italic - latin */
@@ -27,7 +28,7 @@
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/roboto-v51-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/roboto-v51-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* roboto-700 - latin */
@@ -36,7 +37,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/roboto-v51-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/roboto-v51-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* roboto-700italic - latin */
@@ -45,7 +46,7 @@
   font-family: 'Roboto';
   font-style: italic;
   font-weight: 700;
-  src: url('../fonts/roboto-v51-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/roboto-v51-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* space-grotesk-regular - latin */
@@ -54,7 +55,7 @@
   font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/space-grotesk-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/space-grotesk-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* space-grotesk-700 - latin */
@@ -63,7 +64,7 @@
   font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/space-grotesk-v22-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/space-grotesk-v22-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /*Cascade*/
@@ -98,28 +99,21 @@ h1, h2, h3, summary {
 }
 h1 {
     font-size: 2.5rem;
-    line-height: 1.0;
+    line-height: 1.4;
 }
 h2 {
-    /* padding-bottom: 0.2rem;
-    border-bottom: 1px solid var(--accent); */
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
-    line-height: 1.2;
+    line-height: 1.4;
 }
 h3 {
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
-    line-height: 1.0;
+    line-height: 1.4;
 }
 summary {
     font-size: 1.25rem;
-    line-height: 1.0;
-}
-
-/*Lists*/
-ul {
-    padding-left: 1.25rem;
+    line-height: 1.4;
 }
 
 ::selection {
@@ -127,12 +121,21 @@ ul {
 	background-color: var(--orange);
 }
 
+html {
+	cursor: url("images/icons8-cursor-24.png"), default;
+}
+a {
+	cursor: url("images/icons8-hand-24.png"), pointer;
+}
+
 /*Utilities*/
 .wrapper {
 	margin-inline: auto;
-	padding-inline: 2rem;
-	padding-top: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+	padding: 2rem;
 	max-width: var(--content-width);
+    height: calc(100vh - 4rem + 0.1rem);
 }
 
 .grow-on-hover {
@@ -150,12 +153,12 @@ ul {
     height: 2rem;
 }
 
-.cover-image {
+.cover-image-container {
     width: 100%;
     height: 10rem;
 }
 
-.image-container img {
+.cover-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -166,43 +169,55 @@ ul {
 }
 
 .card {
+    --card-width: 48%;
     display: inline-block;
-    width: 45%;
-    margin-left: 2.3%;
-    margin-right: 2.3%;
+    width: var(--card-width);
+    margin-left: calc((0.25 * (100% - (2 * var(--card-width)))) - 2px);
+    margin-right: calc((0.25 * (100% - (2 * var(--card-width)))) - 2px);
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
     transition: var(--transition-time);
+    vertical-align: top;
 }
 @media screen and (max-width: 720px) {
 	.card {
-        width: 95%;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 .card:hover {
     transform: translateY(-0.2rem);
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
 }
+.card-image-container {
+    width: 100%;
+    height: 2.5rem;
+}
 .card-image {
     width: 100%;
-    height: 5rem;
+    height: 100%;
     object-fit: cover;
-    
 }
 .card-content {
-    width: 100%;
+    --lr-padding: 1.5rem;
+    width: calc(100% - 2 * var(--lr-padding));
+    padding-left: var(--lr-padding);
+    padding-right: var(--lr-padding);
+    padding-bottom: 0.5rem;
 }
 .card-link {
     text-decoration: none;
 }
 
 .blue {
+    background-image: linear-gradient(150deg, var(--royal-blue), var(--oxford-blue) 300%);
     background-color: var(--royal-blue);
     color: var(--off-white);
 }
 
 .light-blue {
+    background-image: linear-gradient(150deg, var(--light-blue), var(--royal-blue) 300%);
     background-color: var(--light-blue);
     color: var(--oxford-blue);
 }
@@ -213,15 +228,19 @@ ul {
 }
 
 .radius {
-    border-radius: 4px;
+    border-radius: var(--radius);
 }
 .radius-top {
-    border-radius: 4px 4px 0 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+.radius-left {
+    border-radius: var(--radius) 0 0 var(--radius);
 }
 
 .website-credit {
     font-size: 0.75rem;
-    margin-top: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
 }
 
 .article-credit {
@@ -229,11 +248,39 @@ ul {
     border-top: 1px solid;
     padding-top: 0.5rem;
     margin-top: 5rem;
-    font-family: 'Space Grotesk';
+    font-family: 'Space Grotesk', sans-serif;
     font-style: italic;
 }
 
 .gradient-background {
-    background-image: linear-gradient(150deg, var(--off-white) 0%, var(--light-blue) 200%);
+    background-image: linear-gradient(150deg, var(--off-white) 0%, var(--light-blue) 150%);
     background-attachment: fixed;
+}
+
+.wavy-underline {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--orange);
+    text-decoration-thickness: 0.25rem;
+    text-underline-offset: 0.4rem;
+}
+
+.grotesk {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.large {
+    font-size: 18pt;
+}
+
+.flow > * + * {
+    margin-top: var(--flow-spacing, 1rem);
 }
